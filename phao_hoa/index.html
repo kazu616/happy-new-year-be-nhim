@@ -13,7 +13,8 @@
     <audio src="./Tieng-phao-hoa-no-tren-bau-troi-www_tiengdong_com.mp3" autoplay loop ></audio>
     <div class="container">
       <h2>
-        <span>Happy New Year Cục Cưng</span><span id="year">Calculating...</span>
+        <span style="cursor: pointer;" class="title_music" >Happy New Year Cục Cưng</span>
+        <span id="year">Calculating...</span>
       </h2>
       <div class="countdown">
         <div id="day">NA</div>
@@ -22,8 +23,20 @@
         <div id="second">NA</div>
       </div>
     </div>
-
+    <audio id="song">
+      <source src="nhactet.mp3" type="audio/mp3">
+  </audio>
     <script type="text/javascript">
+      var buttonSong = document.querySelector('.title_music')
+      var mySong = document.getElementById("song")
+      console.log(buttonSong);
+      buttonSong.onclick= function(){
+          if(mySong.paused){
+              mySong.play()
+          } else {
+            mySong.pause();
+          }
+      }
       setInterval(function () {
         let today = new Date();
         let nextYear = today.getFullYear() + 1;
